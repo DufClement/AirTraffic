@@ -84,6 +84,21 @@ def question3():
 
     return render_template('index.html', result=result, question=question)
 
+@app.route('/question5')
+def question5():
+    question = 5
+    query = "SELECT airlines.name, COUNT(flights.dest) AS 'Nombre de destinations desservies' FROM flights INNER JOIN airlines ON airlines.carrier = flights.carrier GROUP BY airlines.name;"
+    connect = bd.connect()
+    cursor = connect.cursor()
+    cursor.execute(query)
+    output = cursor.fetchall()
+    result = []
+    for i in output:
+        result.append(i)
+
+    return render_template('index.html', result=result, question=question)
+
+
 @app.route('/question6')
 def question6():
     question = 6
@@ -122,6 +137,22 @@ def question6():
         result4.append(i)
 
     return render_template('index.html', result=result, result2=result2, result3=result3, result4=result4, question=question)
+
+
+@app.route('/question7')
+def question7():
+    question = 7
+    query = "SELECT flights.flight, airlines.name FROM airlines INNER JOIN flights ON flights.carrier = airlines.carrier GROUP BY airlines.name;"
+    connect = bd.connect()
+    cursor = connect.cursor()
+    cursor.execute(query)
+    output = cursor.fetchall()
+
+    result = []
+    for i in output:
+        result.append(i)
+
+    return render_template('index.html', result=result, question=question)
 
 
 if __name__ == "__main__":

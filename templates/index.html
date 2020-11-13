@@ -33,8 +33,27 @@
 
     {% elif (question == 3) %}
       <p>Combien y-a-t-il de zones aux Etats-Unis où on ne passe pas à l’heure d’été ?</p> <br>
-      <table class="table" id="table_id">
+      <table class="table" id="table_id2">
         <thead class="thead-dark"><tr><th>#</th><th>FAA</th><th>Name</th></tr></thead>
+          {% for un_result in result %}
+          <tr>
+            <td>
+              {{loop.index}}
+            </td>
+            <td>
+              {{un_result[0]}}
+            </td>
+            <td>
+              {{un_result[1]}}
+            </td>
+          </tr>
+          {% endfor %}
+      </table>
+
+    {% elif (question == 5) %}
+      <p>Nombres de destination desservi par chaque compagnie</p> <br>
+      <table class="table" id="table_id3">
+        <thead class="thead-dark"><tr><th>#</th><th>Airline</th><th>Destination number</th></tr></thead>
           {% for un_result in result %}
           <tr>
             <td>
@@ -52,7 +71,7 @@
 
     {% elif (question == 6) %}
       <p>Vols ayant atterri à Houston</p> <br>
-      <table class="table" id="table_id">
+      <table class="table" id="table_id4">
         <thead class="thead-dark"><tr><th>#</th><th>Flight</th><th>Dest</th></tr></thead>
           {% for un_result in result %}
           <tr>
@@ -70,7 +89,7 @@
       </table>
 
       <p>Vols Partent de NYC vers Seattle</p> <br>
-      <table class="table" id="table_id2">
+      <table class="table" id="table_id5">
         <thead class="thead-dark"><tr><th>#</th><th>Flight</th><th>Dest</th></tr></thead>
           {% for un_result in result2 %}
           <tr>
@@ -88,7 +107,7 @@
       </table>
 
       <p>Compagnies desservant Seattle</p> <br>
-      <table class="table" id="table_id3">
+      <table class="table" id="table_id6">
         <thead class="thead-dark"><tr><th>#</th><th>Airline</th></tr></thead>
           {% for un_result in result3 %}
           <tr>
@@ -106,7 +125,7 @@
       </table>
 
       <p>Avions unique desservant Seattle</p> <br>
-      <table class="table" id="table_id4">
+      <table class="table" id="table_id7">
         <thead class="thead-dark"><tr><th>#</th><th>Flight</th><th>Dest</th></tr></thead>
           {% for un_result in result4 %}
           <tbody>
@@ -122,6 +141,25 @@
               </td>
             </tr>
           </tbody>
+          {% endfor %}
+      </table>
+
+      {% elif (question == 7) %}
+      <p>Trier les vols suivant la compagnie dans un ordre alphabétique croissant</p> <br>
+      <table class="table" id="table_id9">
+        <thead class="thead-dark"><tr><th>#</th><th>Flight</th><th>Name</th></tr></thead>
+          {% for un_result in result %}
+          <tr>
+            <td>
+              {{loop.index}}
+            </td>
+            <td>
+              {{un_result[0]}}
+            </td>
+            <td>
+              {{un_result[1]}}
+            </td>
+          </tr>
           {% endfor %}
       </table>
 
@@ -148,6 +186,31 @@ $(document).ready(function() {
         }
     } );
     $('#table_id4').DataTable( {
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/French.json"
+        }
+    } );
+    $('#table_id5').DataTable( {
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/French.json"
+        }
+    } );
+    $('#table_id6').DataTable( {
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/French.json"
+        }
+    } );
+    $('#table_id7').DataTable( {
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/French.json"
+        }
+    } );
+    $('#table_id8').DataTable( {
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/French.json"
+        }
+    } );
+    $('#table_id9').DataTable( {
         "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/French.json"
         }
