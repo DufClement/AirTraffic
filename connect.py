@@ -2,19 +2,16 @@ import pymysql
 
 class bd:
     # To connect MySQL database 
-    def connect(self, query):
+    def connect(self):
         conn = pymysql.connect( 
-                host='', 
-                user='',  
-                password = "", 
-                db='', 
+                host='db4free.net', 
+                user='airtrafficjtc',  
+                password = "YB5LLXhj9s@@Car", 
+                db='airtraffic', 
                 ) 
-           
-        cur = conn.cursor()
-        qry = query
-        cur.execute(qry) 
-        output = cur.fetchall() 
-        return output
+        
+        return conn
+
         
 
 
