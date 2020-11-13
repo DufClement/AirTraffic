@@ -2,7 +2,28 @@
 
 {% block body %}
 <div>
-    <h3><a class="button button3" href="/">Hello</a></h3>
-    {{result}}
+   <style type="text/css">
+      .index{margin-top: 50px;}
+      .table{width: 75%;}
+   </style>
+   <div class="index">
+    
+    <table class="table">
+      {% if (question == 1) %}
+        <thead class="thead-dark"><tr><th>Carrier</th><th>Name</th></tr></thead>
+          {% for un_result in result %}
+          <tr>
+            <td>
+              {{un_result[0]}}
+            </td>
+            <td>
+              {{un_result[1]}}
+            </td>
+          </tr>
+          {% endfor %}
+      {% endif %}
+    </table>
+    
+  </div>
 </div>
 {% endblock %}
