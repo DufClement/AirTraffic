@@ -6,7 +6,7 @@ class bd:
         conn = pymysql.connect( 
                 host='', 
                 user='',  
-                password = "", 
+                password = '', 
                 db='', 
                 ) 
         
