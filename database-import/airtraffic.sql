@@ -184,6 +184,10 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
+--
+-- To do after you initialized datas 
+--
+
 INSERT INTO airports (faa,name,lat, lon, alt, tz, dst, tzone) VALUES ('BQN', 'Rafael Hernandez Airport', 18.495, -67.12944, 72, -4, 'N', 'America/Puerto_Rico');
 INSERT INTO airports (faa,name,lat, lon, alt, tz, dst, tzone) VALUES ('PSE', 'Mercedita Airport', 18.00833, -66.56303, 9, -4, 'N', 'America/Puerto_Rico');
 INSERT INTO airports (faa,name,lat, lon, alt, tz, dst, tzone) VALUES ('SJU', 'San Juan Luis Munoz Airport', 18.4380555556, -66.00444444, 3, -4, 'N', 'America/Puerto_Rico');
