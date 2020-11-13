@@ -3,14 +3,14 @@
 {% block body %}
 <div>
    <style type="text/css">
-      .index{margin-top: 50px;}
-      .table{width: 75%;}
+      p{margin-top: 50px;}
+      table.dataTable{max-width: 75%;}
    </style>
    <div class="index">
-    
-    <table class="table">
-      {% if (question == 1) %}
-        <thead class="thead-dark"><tr><th>Carrier</th><th>Name</th></tr></thead>
+    {% if (question == 1) %}
+    <p>Les compagnies aériennes</p> <br>
+      <table class="table" id="table_id">
+          <thead class="thead-dark"><tr><th>Carrier</th><th>Name</th></tr></thead>
           {% for un_result in result %}
           <tr>
             <td>
@@ -21,9 +21,137 @@
             </td>
           </tr>
           {% endfor %}
+      </table>
+
+    {% elif (question == 2) %}
+      <p>Nombre d'aéroports {{result}}</p> <br>
+      <p>Nombre de compagnies {{result2}}</p> <br>
+      <p>Nombres de destinations {{result3}}</p> <br>
+      <p>Nombres d'avions {{result4}}</p> <br>
+      <p>Nombres de fuseaux horaires {{result5}}</p> <br>
+      
+
+    {% elif (question == 3) %}
+      <p>Combien y-a-t-il de zones aux Etats-Unis où on ne passe pas à l’heure d’été ?</p> <br>
+      <table class="table" id="table_id">
+        <thead class="thead-dark"><tr><th>#</th><th>FAA</th><th>Name</th></tr></thead>
+          {% for un_result in result %}
+          <tr>
+            <td>
+              {{loop.index}}
+            </td>
+            <td>
+              {{un_result[0]}}
+            </td>
+            <td>
+              {{un_result[1]}}
+            </td>
+          </tr>
+          {% endfor %}
+      </table>
+
+    {% elif (question == 6) %}
+      <p>Vols ayant atterri à Houston</p> <br>
+      <table class="table" id="table_id">
+        <thead class="thead-dark"><tr><th>#</th><th>Flight</th><th>Dest</th></tr></thead>
+          {% for un_result in result %}
+          <tr>
+            <td>
+              {{loop.index}}
+            </td>
+            <td>
+              {{un_result[0]}}
+            </td>
+            <td>
+              {{un_result[1]}}
+            </td>
+          </tr>
+          {% endfor %}
+      </table>
+
+      <p>Vols Partent de NYC vers Seattle</p> <br>
+      <table class="table" id="table_id2">
+        <thead class="thead-dark"><tr><th>#</th><th>Flight</th><th>Dest</th></tr></thead>
+          {% for un_result in result2 %}
+          <tr>
+            <td>
+              {{loop.index}}
+            </td>
+            <td>
+              {{un_result[0]}}
+            </td>
+            <td>
+              {{un_result[1]}}
+            </td>
+          </tr>
+          {% endfor %}
+      </table>
+
+      <p>Compagnies desservant Seattle</p> <br>
+      <table class="table" id="table_id3">
+        <thead class="thead-dark"><tr><th>#</th><th>Airline</th></tr></thead>
+          {% for un_result in result3 %}
+          <tr>
+            <td>
+              {{loop.index}}
+            </td>
+            <td>
+              {{un_result[0]}}
+            </td>
+            <td>
+              {{un_result[1]}}
+            </td>
+          </tr>
+          {% endfor %}
+      </table>
+
+      <p>Avions unique desservant Seattle</p> <br>
+      <table class="table" id="table_id4">
+        <thead class="thead-dark"><tr><th>#</th><th>Flight</th><th>Dest</th></tr></thead>
+          {% for un_result in result4 %}
+          <tbody>
+            <tr>
+              <td>
+                {{loop.index}}
+              </td>
+              <td>
+                {{un_result[0]}}
+              </td>
+              <td>
+                {{un_result[1]}}
+              </td>
+            </tr>
+          </tbody>
+          {% endfor %}
+      </table>
+
       {% endif %}
-    </table>
+      
     
   </div>
 </div>
+<script type="text/javascript" xml="space">
+$(document).ready(function() {
+    $('#table_id').DataTable( {
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/French.json"
+        }
+    } );
+    $('#table_id2').DataTable( {
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/French.json"
+        }
+    } );
+    $('#table_id3').DataTable( {
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/French.json"
+        }
+    } );
+    $('#table_id4').DataTable( {
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/French.json"
+        }
+    } );
+} );
+</script>
 {% endblock %}
